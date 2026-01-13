@@ -12,7 +12,14 @@ export default function CreateJob() {
 
  const handleSubmit = async () => {
   try {
-    const parsedPayload = JSON.parse(payload);
+    let parsedPayload = {};
+try {
+  parsedPayload = payload.trim() ? JSON.parse(payload) : {};
+} catch {
+  alert("Payload must be valid JSON like {}");
+  return;
+}
+
 
     await createJob({
       taskName,

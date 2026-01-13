@@ -1,6 +1,6 @@
 const db = require("../database/db");
 
-// 1️⃣ CREATE JOB
+// 1️ CREATE JOB
 exports.createJob = (req, res) => {
   try {
     const { taskName, payload, priority } = req.body;
@@ -34,7 +34,7 @@ exports.createJob = (req, res) => {
   }
 };
 
-// 2️⃣ LIST JOBS
+// 2️ LIST JOBS
 exports.getJobs = (req, res) => {
   try {
     const { status, priority } = req.query;
@@ -62,7 +62,7 @@ exports.getJobs = (req, res) => {
   }
 };
 
-// 3️⃣ JOB DETAIL
+// 3 JOB DETAIL
 exports.getJobById = (req, res) => {
   try {
     const { id } = req.params;
