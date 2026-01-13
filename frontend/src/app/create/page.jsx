@@ -10,14 +10,23 @@ export default function CreateJob() {
 
   const router = useRouter();
 
-  const handleSubmit = async () => {
+ const handleSubmit = async () => {
+  try {
+    const parsedPayload = JSON.parse(payload);
+
     await createJob({
       taskName,
       priority,
-      payload: JSON.parse(payload),
+      payload: parsedPayload,
     });
+
     router.push("/");
-  };
+  } catch (err) {
+    alert("Payload must be valid JSON");
+    console.error(err);
+  }
+};
+
 
   return (
     <div className="p-8 max-w-xl mx-auto">
